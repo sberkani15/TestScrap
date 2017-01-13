@@ -30,7 +30,7 @@ def main():
         _profondeur=int(request.form['profondeur'])
         
         #parcourir les pages en fonction de la profondeur pour chaque mot cle
-     for cle in cles:
+        for cle in cles:
                 _links[:]=[]
 		for start in range(0,_profondeur):
 		    find=None
