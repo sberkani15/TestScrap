@@ -15,3 +15,6 @@ Les améliorations:
   1. recherche avec plusieurs mots clés
   2. Sauvegarder les résultats dans une base de donées
   3.Telecharger les resultats sous forme de ficheir csv
+
+Bugs
+   1 fixer le bug des validators
