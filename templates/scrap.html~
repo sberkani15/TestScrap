@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+   <head>
+	  <title>Scrap Google</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <link rel="stylesheet" href="/static/style.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <style>
+     
+    .content {
+       width: 75%;
+       float: right;
+     }
+   </style>
+</head>
+   <body>
+     
+    <div class="container">
+     <div id="header" class="jumbotron">
+      <p>
+        Suivie de position Google
+      </p>
+    </div>
+
+     <div class="row-same-height row-full-height">
+        <div class="col-xs-3 col-xs-height col-full-height">
+            <h3>Les Paramètres</h3>
+		
+      {% for message in form.url.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+      
+      {% for message in form.profondeur.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+      
+      <form action = "http://localhost:5000/contact" method = post>
+         <fieldset>
+            {{ form.hidden_tag() }}
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+               {{ form.url.label (class_="font-size=90%") }}<br>
+               {{ form.url (class_="form-control") }}
+               <br>
+
+               {{ form.mot_cle.label }}<br>
+	       {{ form.mot_cle}}
+               <br><br>
+               
+               {{ form.profondeur.label }}<br>
+               {{ form.profondeur (class_="form-control") }}
+               <br>
+               
+ 
+               {{ form.submit (class_="btn btn-primary") }}
+            </div>  
+         </fieldset>
+      </form>
+        </div>
+        <div class="col-xs-3 col-xs-height col-full-height   content">
+           <h3>La liste des résultats!</h3>
+          
+          <table class="table stripped-table" >
+            <thead>
+  		<tr>
+		  <th>Mot clé</th>
+		  <th>URL</th>
+		  <th>Position</th>
+		</tr>
+		<tbody {% for page in pages%}>
+		  <tr>
+		   <td>{{page.mot_cle}}</td>
+		   <td>{{page.url}}</td>
+		   <td>{{page.position}}</td>
+                  </tr>
+  		</tbody {% endfor %}>
+            </thead>
+          </table >
+          
+           
+      
+        </div>
+        
+    </div>
+      </div>
+      
+   </body>
+</html>

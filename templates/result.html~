@@ -1,0 +1,11 @@
+<html>
+     <head>
+          <title>WMATA Tracker</title>
+     </head>
+     <body>
+          <h1>Hello!</h1>
+          {% for page in pages%}
+          <p>{ page['Trains'][counter]['DestinationName'] }</p>
+          {% endfor %}
+     </body>
+</html>
